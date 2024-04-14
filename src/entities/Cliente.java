@@ -2,26 +2,30 @@ package entities;
 
 import java.time.LocalDate;
 
-public class Usuario {
+public abstract class Cliente {
 
     private String nomeCompleto;
     private LocalDate dataNascimento;
     private String endereco;
-    private String bairro;
     private String telefone;
     private LocalDate dataInicio;
+    private LocalDate dataEncerramento;
+    private String status;
 
+    public static final String STATUS_ATIVO = "Ativo";
+    public static final String STATUS_ENCERRADO = "Encerrado";
 
-    public Usuario(){
+    public Cliente(){
+        this.status = STATUS_ATIVO;
     }
 
-    public Usuario(String nomeCompleto, LocalDate dataNascimento, String endereco, String bairro, String telefone, LocalDate dataInicio) {
+    public Cliente(String nomeCompleto, LocalDate dataNascimento, String endereco, String telefone, LocalDate dataInicio) {
         this.nomeCompleto = nomeCompleto;
         this.dataNascimento = dataNascimento;
         this.endereco = endereco;
-        this.bairro = bairro;
         this.telefone = telefone;
         this.dataInicio = dataInicio;
+        this.status = STATUS_ATIVO;
     }
 
     public String getNomeCompleto() {
@@ -44,13 +48,6 @@ public class Usuario {
         this.endereco = endereco;
     }
 
-    public String getBairro() {
-        return bairro;
-    }
-
-    public void setBairro(String bairro) {
-        this.bairro = bairro;
-    }
 
     public String getTelefone() {
         return telefone;
@@ -63,4 +60,27 @@ public class Usuario {
     public LocalDate getDataInicio() {
         return dataInicio;
     }
+
+    public LocalDate getDataEncerramento() {
+        return dataEncerramento;
+    }
+
+    public void setDataEncerramento(LocalDate dataEncerramento) {
+        this.dataEncerramento = dataEncerramento;
+        if (dataEncerramento != null) {
+            this.status = STATUS_ENCERRADO;
+        }
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+
+
+
 }

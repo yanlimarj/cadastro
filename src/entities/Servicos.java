@@ -14,11 +14,11 @@ public class Servicos {
         listaServicos.add("psicologia");
     }
 
-    public String obterNomeTratamento(int indice) {
+    public String obterNomeEspecialide(int indice) {
         return listaServicos.get(indice);
     }
 
-    public void mostrarTratamentos() {
+    public void mostrarEspecialides() {
         for (int i = 0; i < listaServicos.size(); i++) {
             System.out.println((i + 1) + "- " + listaServicos.get(i));
         }

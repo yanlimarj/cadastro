@@ -1,9 +1,8 @@
 package application;
 
-import entities.CestaBasica;
+import entities.ClienteCestaBasica;
 import entities.Servicos;
-import entities.ServicosPrestados;
-import entities.Usuario;
+import entities.ClienteServicosEspecialidade;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -16,8 +15,8 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
         Servicos servicos = new Servicos();
-        List<CestaBasica> cestasBasicas = new ArrayList<>();
-        List<ServicosPrestados> servicosPrestados = new ArrayList<>();
+        List<ClienteCestaBasica> cestasBasicas = new ArrayList<>();
+        List<ClienteServicosEspecialidade> servicosPrestados = new ArrayList<>();
 
         boolean continuarCadastro = true;
         System.out.println("----Sistema de cadastro----");
@@ -58,15 +57,15 @@ public class Main {
             }
 
             if (escolha == 1) {
-                cestasBasicas.add(new CestaBasica(nomeCompleto, dataNascimento, endereco, bairro, telefone, dataInicio));
+                cestasBasicas.add(new ClienteCestaBasica(nomeCompleto, dataNascimento, endereco, telefone, dataInicio));
                 System.out.println("Cadastro Cesta basica feito com sucesso!");
             } else {
-                System.out.println("Escolha o tratamento: ");
-                servicos.mostrarTratamentos();
-                int indiceTratamento = sc.nextInt();
-                String tratamento = servicos.obterNomeTratamento(indiceTratamento - 1);
-                servicosPrestados.add(new ServicosPrestados(nomeCompleto, dataNascimento, endereco, bairro, telefone, dataInicio, tratamento));
-                System.out.println("Cadastro de " + tratamento + " feito com sucesso!");
+                System.out.println("Escolha a especialidade: ");
+                servicos.mostrarEspecialides();
+                int indiceEspecialidade = sc.nextInt();
+                String especialidade = servicos.obterNomeEspecialide(indiceEspecialidade - 1);
+                servicosPrestados.add(new ClienteServicosEspecialidade(nomeCompleto, dataNascimento, endereco, telefone, dataInicio, especialidade));
+                System.out.println("Cadastro de " + especialidade + " feito com sucesso!");
             }
             System.out.println();
             System.out.print("Deseja continuar o cadastro? (s/n): ");
@@ -76,12 +75,12 @@ public class Main {
         }
 
         System.out.println("Cestas Básicas cadastradas:");
-        for (CestaBasica cestaBasica : cestasBasicas) {
+        for (ClienteCestaBasica cestaBasica : cestasBasicas) {
             System.out.println(cestaBasica);
         }
 
         System.out.println("Serviços Prestados cadastrados:");
-        for (ServicosPrestados servicoPrestado : servicosPrestados) {
+        for (ClienteServicosEspecialidade servicoPrestado : servicosPrestados) {
             System.out.println(servicoPrestado);
         }
 

@@ -3,16 +3,15 @@ package entities;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
 
-public class CestaBasica extends Usuario{
+public class ClienteCestaBasica extends Cliente {
 
-    public CestaBasica(){
+    public ClienteCestaBasica(){
         super();
     }
 
-    public CestaBasica(String nomeCompleto, LocalDate dataNascimento, String endereco, String bairro, String telefone, LocalDate dataInicio) {
-        super(nomeCompleto, dataNascimento, endereco, bairro, telefone, dataInicio);
+    public ClienteCestaBasica(String nomeCompleto, LocalDate dataNascimento, String endereco, String telefone, LocalDate dataInicio) {
+        super(nomeCompleto, dataNascimento, endereco, telefone, dataInicio);
     }
 
     public static String dataTempoAtual(LocalDate dataInicio){
@@ -33,17 +32,21 @@ public class CestaBasica extends Usuario{
         String dataNascimentoFormatted = getDataNascimento().format(formatter);
         String dataInicioFormatted = getDataInicio().format(formatter);
 
+        String tempoAtual = dataTempoAtual(getDataInicio());
+
         return "Nome: "
                 + getNomeCompleto()
                 + ", Data de nascimento: "
                 + dataNascimentoFormatted
                 + ", Endereço: "
                 + getEndereco()
-                + ", Bairro: "
-                + getBairro()
                 + ", Telefone: "
                 + getTelefone()
-                + " Data de inicio no programa: "
-                + dataInicioFormatted;
+                + ", Data de inicio no programa: "
+                + dataInicioFormatted
+                + ", Status: "
+                + getStatus()
+                + ", Tempo desde o inicio: "
+                + tempoAtual;
     }
 }
