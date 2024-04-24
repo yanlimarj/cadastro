@@ -14,7 +14,7 @@ public class Medico extends Funcionario{
         this.pacientes = new ArrayList<>();
     }
     public Medico(String nome, String telefone, Integer matricula, String endereco, String email, String funcao, String especialidade, Image foto) {
-        super(nome, telefone, matricula, endereco, email, funcao, foto);
+        super(nome, telefone, matricula, endereco, email, funcao);
         this.especialidade = especialidade;
         this.pacientes = new ArrayList<>();
     }

@@ -10,29 +10,16 @@ public class ClienteCestaBasica extends Cliente {
         super();
     }
 
-    public ClienteCestaBasica(String nomeCompleto, LocalDate dataNascimento, String endereco, String telefone, LocalDate dataInicio) {
-        super(nomeCompleto, dataNascimento, endereco, telefone, dataInicio);
+    public ClienteCestaBasica(String nomeCompleto, LocalDate dataNascimento, String endereco, String telefone, String dataInicio, String dataEncerramento) {
+        super(nomeCompleto, dataNascimento, endereco, telefone, dataInicio, dataEncerramento);
     }
 
-    public static String dataTempoAtual(LocalDate dataInicio){
-
-        LocalDate dataTempoAtual = LocalDate.now();
-        Period periodo = Period.between(dataInicio, dataTempoAtual);
-
-        int anos = periodo.getYears();
-        int meses = periodo.getMonths();
-        int dias = periodo.getDays();
-
-        return "Diferença em anos, meses e dias: " + anos + " anos, " + meses + " meses, " + dias + " dias.";
-    }
 
     @Override
     public String toString() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         String dataNascimentoFormatted = getDataNascimento().format(formatter);
-        String dataInicioFormatted = getDataInicio().format(formatter);
 
-        String tempoAtual = dataTempoAtual(getDataInicio());
 
         return "Nome: "
                 + getNomeCompleto()
@@ -43,10 +30,9 @@ public class ClienteCestaBasica extends Cliente {
                 + ", Telefone: "
                 + getTelefone()
                 + ", Data de inicio no programa: "
-                + dataInicioFormatted
+                + getDataInicio()
                 + ", Status: "
-                + getStatus()
-                + ", Tempo desde o inicio: "
-                + tempoAtual;
+                + getStatus();
+
     }
 }

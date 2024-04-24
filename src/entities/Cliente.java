@@ -8,8 +8,8 @@ public abstract class Cliente {
     private LocalDate dataNascimento;
     private String endereco;
     private String telefone;
-    private LocalDate dataInicio;
-    private LocalDate dataEncerramento;
+    private String dataInicio;
+    private String dataEncerramento;
     private String status;
 
     public static final String STATUS_ATIVO = "Ativo";
@@ -19,13 +19,24 @@ public abstract class Cliente {
         this.status = STATUS_ATIVO;
     }
 
-    public Cliente(String nomeCompleto, LocalDate dataNascimento, String endereco, String telefone, LocalDate dataInicio) {
+    public Cliente(String nomeCompleto, LocalDate dataNascimento, String endereco, String telefone, String dataInicio, String dataEncerramento) {
+        this.nomeCompleto = nomeCompleto;
+        this.dataNascimento = dataNascimento;
+        this.endereco = endereco;
+        this.telefone = telefone;
+        this.dataInicio = dataInicio;
+        this.dataEncerramento = dataEncerramento;
+        this.status = STATUS_ATIVO;
+    }
+
+    public Cliente(String nomeCompleto, LocalDate dataNascimento, String endereco, String telefone, String dataInicio) {
         this.nomeCompleto = nomeCompleto;
         this.dataNascimento = dataNascimento;
         this.endereco = endereco;
         this.telefone = telefone;
         this.dataInicio = dataInicio;
         this.status = STATUS_ATIVO;
+        this.dataEncerramento ="";
     }
 
     public String getNomeCompleto() {
@@ -57,15 +68,15 @@ public abstract class Cliente {
         this.telefone = telefone;
     }
 
-    public LocalDate getDataInicio() {
+    public String getDataInicio() {
         return dataInicio;
     }
 
-    public LocalDate getDataEncerramento() {
+    public String getDataEncerramento() {
         return dataEncerramento;
     }
 
-    public void setDataEncerramento(LocalDate dataEncerramento) {
+    public void setDataEncerramento(String dataEncerramento) {
         this.dataEncerramento = dataEncerramento;
         if (dataEncerramento != null) {
             this.status = STATUS_ENCERRADO;

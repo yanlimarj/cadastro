@@ -10,19 +10,18 @@ public class Funcionario {
     private String endereco;
     private String email;
     private String funcao;
-    private Image foto;
+
 
     public Funcionario(){}
 
 
-    public Funcionario(String nome, String telefone, Integer matricula, String endereco, String email, String funcao, Image foto) {
+    public Funcionario(String nome, String telefone, Integer matricula, String endereco, String email, String funcao) {
         this.nome = nome;
         this.telefone = telefone;
         this.matricula = matricula;
         this.endereco = endereco;
         this.email = email;
         this.funcao = funcao;
-        this.foto = foto;
     }
 
     public String getNome() {
@@ -43,10 +42,6 @@ public class Funcionario {
 
     public Integer getMatricula() {
         return matricula;
-    }
-
-    public void setMatricula(Integer matricula) {
-        this.matricula = matricula;
     }
 
     public String getEndereco() {
@@ -73,11 +68,4 @@ public class Funcionario {
         this.funcao = funcao;
     }
 
-    public Image getFoto() {
-        return foto;
-    }
-
-    public void setFoto(Image foto) {
-        this.foto = foto;
-    }
 }

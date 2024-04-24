@@ -4,7 +4,6 @@ import entities.ClienteCestaBasica;
 import entities.Servicos;
 import entities.ClienteServicosEspecialidade;
 
-import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -60,14 +59,14 @@ public class Main {
                 }
 
                 if (escolha == 1) {
-                    cestasBasicas.add(new ClienteCestaBasica(nomeCompleto, dataNascimento, endereco, telefone, dataInicio));
+                    cestasBasicas.add(new ClienteCestaBasica());
                     System.out.println("Cadastro Cesta basica feito com sucesso!");
                 } else {
                     System.out.println("Escolha a especialidade: ");
                     servicos.mostrarEspecialides();
                     int indiceEspecialidade = sc.nextInt();
                     String especialidade = servicos.obterNomeEspecialide(indiceEspecialidade - 1);
-                    servicosPrestados.add(new ClienteServicosEspecialidade(nomeCompleto, dataNascimento, endereco, telefone, dataInicio, especialidade));
+                    servicosPrestados.add(new ClienteServicosEspecialidade());
                     System.out.println("Cadastro de " + especialidade + " feito com sucesso!");
                 }
             } catch (DateTimeParseException e) {
