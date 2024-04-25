@@ -1,7 +1,7 @@
 package application;
 
 import entities.ClienteCestaBasica;
-import entities.Servicos;
+import entities.Listas;
 import entities.ClienteServicosEspecialidade;
 
 import java.time.LocalDate;
@@ -16,7 +16,7 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        Servicos servicos = new Servicos();
+        Listas listas = new Listas();
         List<ClienteCestaBasica> cestasBasicas = new ArrayList<>();
         List<ClienteServicosEspecialidade> servicosPrestados = new ArrayList<>();
 
@@ -63,9 +63,9 @@ public class Main {
                     System.out.println("Cadastro Cesta basica feito com sucesso!");
                 } else {
                     System.out.println("Escolha a especialidade: ");
-                    servicos.mostrarEspecialides();
+                    listas.mostrarEspecialides();
                     int indiceEspecialidade = sc.nextInt();
-                    String especialidade = servicos.obterNomeEspecialide(indiceEspecialidade - 1);
+                    String especialidade = listas.obterNomeEspecialide(indiceEspecialidade - 1);
                     servicosPrestados.add(new ClienteServicosEspecialidade());
                     System.out.println("Cadastro de " + especialidade + " feito com sucesso!");
                 }
