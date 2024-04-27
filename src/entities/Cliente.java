@@ -5,7 +5,7 @@ import java.time.LocalDate;
 public abstract class Cliente {
 
     private String nomeCompleto;
-    private LocalDate dataNascimento;
+    private String dataNascimento;
     private String endereco;
     private String telefone;
     private String dataInicio;
@@ -19,7 +19,7 @@ public abstract class Cliente {
         this.status = STATUS_ATIVO;
     }
 
-    public Cliente(String nomeCompleto, LocalDate dataNascimento, String endereco, String telefone, String dataInicio, String dataEncerramento) {
+    public Cliente(String nomeCompleto, String dataNascimento, String endereco, String telefone, String dataInicio, String dataEncerramento) {
         this.nomeCompleto = nomeCompleto;
         this.dataNascimento = dataNascimento;
         this.endereco = endereco;
@@ -29,7 +29,7 @@ public abstract class Cliente {
         this.status = STATUS_ATIVO;
     }
 
-    public Cliente(String nomeCompleto, LocalDate dataNascimento, String endereco, String telefone, String dataInicio) {
+    public Cliente(String nomeCompleto, String dataNascimento, String endereco, String telefone, String dataInicio) {
         this.nomeCompleto = nomeCompleto;
         this.dataNascimento = dataNascimento;
         this.endereco = endereco;
@@ -47,7 +47,7 @@ public abstract class Cliente {
         this.nomeCompleto = nomeCompleto;
     }
 
-    public LocalDate getDataNascimento() {
+    public String getDataNascimento() {
         return dataNascimento;
     }
 

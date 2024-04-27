@@ -1,7 +1,9 @@
 package entities;
 
+import javax.swing.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 
 public class ClienteServicosEspecialidade extends Cliente {
 
@@ -13,7 +15,7 @@ public class ClienteServicosEspecialidade extends Cliente {
         super();
     }
 
-    public ClienteServicosEspecialidade(String nomeCompleto, LocalDate dataNascimento, String endereco, String telefone, String dataInicio, String especialidade, String nomeMedico) {
+    public ClienteServicosEspecialidade(String nomeCompleto, String dataNascimento, String endereco, String telefone, String dataInicio, String especialidade, String nomeMedico) {
         super(nomeCompleto, dataNascimento, endereco, telefone, dataInicio);
         this.especialidade = especialidade;
         this.nomeMedico = nomeMedico;
@@ -44,16 +46,15 @@ public class ClienteServicosEspecialidade extends Cliente {
         this.obsProfissional = obsProfissional;
     }
 
+
     @Override
     public String toString() {
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        String dataNascimentoFormatted = getDataNascimento().format(formatter);
 
         return "Nome: "
                 + getNomeCompleto()
                 + ", Data de nascimento: "
-                + dataNascimentoFormatted
+                + getDataNascimento()
                 + ", Endereço: "
                 + getEndereco()
                 + ", Telefone: "

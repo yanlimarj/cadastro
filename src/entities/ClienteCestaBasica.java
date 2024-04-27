@@ -10,21 +10,18 @@ public class ClienteCestaBasica extends Cliente {
         super();
     }
 
-    public ClienteCestaBasica(String nomeCompleto, LocalDate dataNascimento, String endereco, String telefone, String dataInicio, String dataEncerramento) {
+    public ClienteCestaBasica(String nomeCompleto, String dataNascimento, String endereco, String telefone, String dataInicio, String dataEncerramento) {
         super(nomeCompleto, dataNascimento, endereco, telefone, dataInicio, dataEncerramento);
     }
 
 
     @Override
     public String toString() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        String dataNascimentoFormatted = getDataNascimento().format(formatter);
-
 
         return "Nome: "
                 + getNomeCompleto()
                 + ", Data de nascimento: "
-                + dataNascimentoFormatted
+                + getDataNascimento()
                 + ", Endereço: "
                 + getEndereco()
                 + ", Telefone: "
