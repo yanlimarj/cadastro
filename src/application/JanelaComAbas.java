@@ -346,10 +346,10 @@ public class JanelaComAbas extends JFrame {
 
         if (cliente instanceof ClienteCestaBasica) {
             listas.adicionarClienteCestaBasica((ClienteCestaBasica) cliente);
-            System.out.println("Cliente de cesta básica cadastrado com sucesso!");
+            JOptionPane.showMessageDialog(this, "Cliente da Cesta Basica cadastrado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
         } else {
             listas.adicionarPaciente(medico, (ClienteServicosEspecialidade) cliente);
-            System.out.println("Cliente de tratamento cadastrado com sucesso!");
+            JOptionPane.showMessageDialog(this, "Paciente do tratamento cadastrado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
         }
 
         limparCampos();
