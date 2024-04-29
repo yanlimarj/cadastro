@@ -59,10 +59,8 @@ public class JanelaComAbas extends JFrame {
         panelCadastro.setBackground(Color.LIGHT_GRAY);
         panelBusca.setBackground(Color.LIGHT_GRAY);
         panelCesta.setBackground(Color.LIGHT_GRAY);
+
         panelCadastro.setLayout(new GridBagLayout());
-
-
-
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 0;
@@ -241,6 +239,12 @@ public class JanelaComAbas extends JFrame {
 
 
 
+        //panelCesta.setLayout(new GridBagLayout());
+        GridBagConstraints gbcCesta = new GridBagConstraints();
+        gbcCesta.gridx = 0;
+        gbcCesta.gridy = 0;
+        gbcCesta.weighty = 1.0;
+        //panelCesta.add(Box.createVerticalStrut(50), gbcCesta);
 
         tableModelCesta = new DefaultTableModel();
         tableCesta = new JTable(tableModelCesta);
@@ -253,8 +257,10 @@ public class JanelaComAbas extends JFrame {
         panelCesta.add(tableCesta, gbc);
 
         JScrollPane scrollPaneCesta = new JScrollPane(tableCesta);
-        scrollPaneCesta.setPreferredSize(new Dimension(800, 600));
-        panelCesta.add(scrollPaneCesta, gbc);
+        scrollPaneCesta.setPreferredSize(new Dimension(900, 800));
+
+        //gbcCesta.gridy++;
+        panelCesta.add(scrollPaneCesta, gbcCesta);
 
         try {
             UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
